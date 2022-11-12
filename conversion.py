@@ -1,5 +1,5 @@
-#___ ___ ___ ___ ___ ___ ___ ___
-#128 64  32  16  8   4   2   1
+# ___ ___ ___ ___ ___ ___ ___ ___
+# 128 64  32  16  8   4   2   1
 
 from tkinter import *
 
@@ -9,11 +9,13 @@ dec2 = 0
 bin2 = ""
 eight = [128, 64, 32, 16, 8, 4, 2, 1]
 
+
 def compile_num():
     for i in binary_entries:
         n = int(i.get())
         nums.append(n)
-        
+
+
 def calc_decimal():
     global dec1
     global nums
@@ -21,12 +23,13 @@ def calc_decimal():
     ind = 0
     compile_num()
     for i in nums:
-        dec1 += (nums[ind] * (2**exp))
+        dec1 += (nums[ind] * (2 ** exp))
         exp -= 1
         ind += 1
     dec_lbl.configure(text=dec1)
     nums = []
     dec1 = 0
+
 
 def calc_binary():
     global bin2
@@ -40,6 +43,7 @@ def calc_binary():
     bin_lbl.configure(text=bin2)
     dec2 = 0
     bin2 = ""
+
 
 root = Tk()
 

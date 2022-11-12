@@ -1,13 +1,13 @@
 # c0  c1  c2
-#-----------#
+# -----------#
 # 0 | 1 | 2 # r0
-#-----------#
+# -----------#
 # 3 | 4 | 5 # r1
-#-----------#
+# -----------#
 # 6 | 7 | 8 # r2
-#-----------#
+# -----------#
 
-#winners 012, 345, 678, 036, 147, 258, 048, 246
+# winners 012, 345, 678, 036, 147, 258, 048, 246
 
 from tkinter import *
 
@@ -15,38 +15,43 @@ x_or_o = "X"
 color = "red"
 hidden_board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-def change_xo(): #take turns between x's and o's
+
+def change_xo():  # take turns between x's and o's
     global x_or_o
     if x_or_o == "X":
         x_or_o = "O"
     else:
         x_or_o = "X"
 
-def change_color(): #switch between the red and yellow colors
+
+def change_color():  # switch between the red and yellow colors
     global color
     if color == "red":
         color = "yellow"
     else:
         color = "red"
 
+
 def check_winner():
     if (hidden_board[0] == x_or_o and hidden_board[1] == x_or_o and hidden_board[2] == x_or_o) or \
-       (hidden_board[3] == x_or_o and hidden_board[4] == x_or_o and hidden_board[5] == x_or_o) or \
-       (hidden_board[6] == x_or_o and hidden_board[7] == x_or_o and hidden_board[8] == x_or_o) or \
-       (hidden_board[0] == x_or_o and hidden_board[3] == x_or_o and hidden_board[6] == x_or_o) or \
-       (hidden_board[1] == x_or_o and hidden_board[4] == x_or_o and hidden_board[7] == x_or_o) or \
-       (hidden_board[2] == x_or_o and hidden_board[5] == x_or_o and hidden_board[8] == x_or_o) or \
-       (hidden_board[0] == x_or_o and hidden_board[4] == x_or_o and hidden_board[8] == x_or_o) or \
-       (hidden_board[2] == x_or_o and hidden_board[4] == x_or_o and hidden_board[6] == x_or_o):
+            (hidden_board[3] == x_or_o and hidden_board[4] == x_or_o and hidden_board[5] == x_or_o) or \
+            (hidden_board[6] == x_or_o and hidden_board[7] == x_or_o and hidden_board[8] == x_or_o) or \
+            (hidden_board[0] == x_or_o and hidden_board[3] == x_or_o and hidden_board[6] == x_or_o) or \
+            (hidden_board[1] == x_or_o and hidden_board[4] == x_or_o and hidden_board[7] == x_or_o) or \
+            (hidden_board[2] == x_or_o and hidden_board[5] == x_or_o and hidden_board[8] == x_or_o) or \
+            (hidden_board[0] == x_or_o and hidden_board[4] == x_or_o and hidden_board[8] == x_or_o) or \
+            (hidden_board[2] == x_or_o and hidden_board[4] == x_or_o and hidden_board[6] == x_or_o):
         result_label.configure(text=f"{x_or_o}'s has won the game!")
         for i in buttons:
             i.configure(state=DISABLED)
+
 
 def check_tie():
     if 0 not in hidden_board:
         result_label.configure(text="Tie!")
 
-def btn_selected(num): #whenever a button is clicked, do this
+
+def btn_selected(num):  # whenever a button is clicked, do this
     global x_or_o
     global color
     buttons[num].configure(text=x_or_o, bg=color, state=DISABLED)
@@ -55,6 +60,7 @@ def btn_selected(num): #whenever a button is clicked, do this
     check_tie()
     change_xo()
     change_color()
+
 
 root = Tk()
 root.title("Tic-Tac-Toe")

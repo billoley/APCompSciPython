@@ -1,15 +1,15 @@
 import random
 
-secret_num = random.randint(1,5)
+secret_num = random.randint(1, 5)
 guess = int(input("Pick a number, 1-5: "))
 
 if guess == secret_num:
-  print("Correct!")
+    print("Correct!")
 elif guess > secret_num:
-  print("Guess lower")
+    print("Guess lower")
 elif guess < secret_num:
-  print("Guess higher")
+    print("Guess higher")
 else:
-  print("Invalid guess")
+    print("Invalid guess")
 
 print("The correct answer was: " + str(secret_num))
